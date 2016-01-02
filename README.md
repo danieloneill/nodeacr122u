@@ -1,6 +1,14 @@
 # nodeacr122u
 Lightweight LibNFC glue for Node.js (intended for reading Mifare Classic RFIDs via ACR122U)
 
+If you do intend on using this module with an ACR122U, I recommend fixing your libNFC driver with this patch:
+
+* [https://gist.github.com/danieloneill/3be43d5374c80d89ea73](https://gist.github.com/danieloneill/3be43d5374c80d89ea73)
+
+This patch will fix the driver so it will emit NFC_ETIMEOUT events when there isn't an RFID tag within reader proximity. Without this patch libNFC will simply emit NFC_EIO (General I/O Error), causing the module to exit.
+
+It also [checks packet sizes correctly, which for some reason the libNFC guys haven't yet fixed](http://osdir.com/ml/general/2014-08/msg50964.html).
+
 ### Example
 
 ```javascript
