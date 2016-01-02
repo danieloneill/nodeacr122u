@@ -1,0 +1,34 @@
+{
+  "name": "nodeacr122u",
+  "version": "1.0.0",
+  "description": "Lightweight LibNFC glue for Node.js (intended for reading Mifare Classic RFIDs via ACR122U/USB)",
+  "author": {
+    "name": "Daniel O'Neill",
+    "email": "doneill@akielectronics.com",
+    "url": "http://akielectronics.com"
+  },
+  "keywords": [
+    "nodeacr122u",
+    "acr122u",
+    "libnfc",
+    "nfc",
+    "rfid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danieloneill/nodeacr122u.git"
+  },
+  "scripts": {
+    "preinstall": "(pkg-config libnfc --exists) || (echo Sorry, you need to install libnfc and development headers to build this module.; exit 1)",
+    "install": "(node-gyp rebuild 2> builderror.log) || (exit 1)"
+  },
+  "engines": {
+    "node": ">=0.11.13"
+  },
+  "gypfile": true,
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/danieloneill/nodeacr122u/issues"
+  },
+  "homepage": "https://github.com/danieloneill/nodeacr122u"
+}
